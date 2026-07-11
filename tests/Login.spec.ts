@@ -12,6 +12,7 @@ let myaccountpage: MyAccountPage;
 test.beforeEach(async ({page})=>{
     config=new TestConfig();
     await page.goto(config.appUrl);
+    test.slow();
 
     homepage=new HomePage(page);
     loginpage=new LoginPage(page);
