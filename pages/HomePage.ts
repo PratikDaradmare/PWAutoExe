@@ -7,12 +7,14 @@ export class HomePage{
     //locators
     //private readonly lnkHome;
     private readonly lnkSignUpLogin;
-
+    private readonly btncontinueShopping;
+    
     constructor(page:Page)
     {
         this.page=page;
         //this.lnkHome=page.getByText(' Home');
         this.lnkSignUpLogin=page.locator('.fa.fa-lock');
+        this.btncontinueShopping=page.locator('.btn.btn-success.close-modal.btn-block');
     }
 
 
@@ -38,5 +40,9 @@ export class HomePage{
             throw error;
         }
 
+    }
+
+    async continueShopping(){
+        await this.btncontinueShopping.click();
     }
 }

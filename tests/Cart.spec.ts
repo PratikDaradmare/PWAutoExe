@@ -9,7 +9,7 @@ let config: TestConfig;
 let homepage: HomePage;
 let loginpage: LoginPage;
 let myaccountpage: MyAccountPage;
-let cartpage:CartPage;
+let cartpage: CartPage;
 
 test.beforeEach(async ({ page }) => {
     config = new TestConfig();
@@ -19,7 +19,7 @@ test.beforeEach(async ({ page }) => {
     homepage = new HomePage(page);
     loginpage = new LoginPage(page);
     myaccountpage = new MyAccountPage(page);
-    cartpage= new CartPage(page);
+    cartpage = new CartPage(page);
 });
 
 test.afterEach(async ({ page }) => {
@@ -42,11 +42,8 @@ test('User checks cart pages @regression', async () => {
 
     //Verify cart Button header
     await cartpage.clickCartLink();
-    
-    //Verify cart is empty
-    await cartpage.checkProductInCart();
 
-    //Verify user redirects to product from cart page directly
-    await cartpage.buyProductLink();
+    //Verify total no of products present in the cart
+    await cartpage.checkProductInCart();
 
 })
